@@ -50,8 +50,9 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
      orderedList.appendChild(list_5);
    
     //li imageUrl
-     const list_6 = document.createElement("img src");
-     const node_6 = document.createTextNode(imageUrl);
+     const list_6 = document.createElement("img");
+     list_6.setAttribute("src", imageUrl)
+    //  const node_6= document.createTextNode(imageUrl);
      missionTarget.appendChild(list_6);
    
 
