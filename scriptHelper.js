@@ -3,15 +3,16 @@ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
-   
+    
     //h2
     const head2 = document.createElement("h2");
     const node = document.createTextNode("Mission Destination");
     head2.appendChild(node);
+    missionTarget.appendChild(head2);
 
     //ol
     const orderedList = document.createElement("ol");
-    targetDiv.appendChild(orderedList);
+    missionTarget.appendChild(orderedList);
 
     //li name
     const list_1 = document.createElement("li");
@@ -49,24 +50,22 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
      orderedList.appendChild(list_5);
    
     //li imageUrl
-     const list_6 = document.createElement("li");
-     const node_6 = document.createTextNode("imageUrl: " + imageUrl);
-     
-     list_6.appendChild(node_6);
-     orderedList.appendChild(list_6);
+     const list_6 = document.createElement("img src");
+     const node_6 = document.createTextNode(imageUrl);
+     missionTarget.appendChild(list_6);
    
 
-   /*
-                <h2>Mission Destination</h2>
-                <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
-                    <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
-                </ol>
-                <img src="">
-   */
+//    /*
+//                 <h2>Mission Destination</h2>
+//                 <ol>
+//                     <li>Name: </li>
+//                     <li>Diameter: </li>
+//                     <li>Star: ${star}</li>
+//                     <li>Distance from Earth: </li>
+//                     <li>Number of Moons: </li>
+//                 </ol>
+//                 <img src="">
+//    */
 
 }
 
