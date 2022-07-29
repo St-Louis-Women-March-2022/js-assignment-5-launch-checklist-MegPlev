@@ -51,7 +51,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    
     //li imageUrl
      const list_6 = document.createElement("img");
-     list_6.setAttribute("src", imageUrl)
+     list_6.src = imageUrl;
     //  const node_6= document.createTextNode(imageUrl);
      missionTarget.appendChild(list_6);
    
@@ -83,12 +83,12 @@ function validateInput(testInput) {
    
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
+
+    // console.log("I sure ran");
     
-    console.log("I sure ran");
-    
-    document.getElementById("pilotStatus").innerHTML = `Chris`;
-    document.getElementById("copilotStatus").innerHTML = `Blake`;
+    document.getElementById("pilotStatus").innerHTML = `Pilot ` + pilot.value + ` is ready for launch`;
+    document.getElementById("copilotStatus").innerHTML = `Co-pilot ` + copilot.value + ` is ready for launch`;
 
     if (fuelLevel.value < 10000) {
        //change faulty items to visible
@@ -109,6 +109,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
      }
 
      if (cargoMass.value < 10000 && fuelLevel.value > 10000){
+        document.getElementById("faultyItems").style.visibility = "hidden";
         document.getElementById("launchStatus").style.color = "green";
         document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
      }
@@ -120,16 +121,16 @@ async function myFetch() {
     let planetsReturned;
 
     await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
-        planetsReturned=response.json();
+        planetsReturned = response.json();
     });
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
-    let max = planets.length(); 
+    let max = planets.length; 
     let index = Math.floor(Math.random() * max);
 
-    return planets(index);
+    return planets[index];
 
 }
 
